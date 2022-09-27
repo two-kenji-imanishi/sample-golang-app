@@ -1,0 +1,10 @@
+runtime: go116
+
+instance_class: F1
+
+inbound_services:
+  - warmup
+
+handlers:
+- url: /.*
+  script: auto
