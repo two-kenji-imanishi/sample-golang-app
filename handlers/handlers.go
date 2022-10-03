@@ -6,5 +6,5 @@ import (
 )
 
 func HelloHandler(w http.ResponseWriter, req *http.Request) {
-	io.WriteString(w, "Hello GAE World!\n")
+	io.WriteString(w, "Hello GAE World 2022!\n")
 }
