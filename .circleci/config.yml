@@ -4,6 +4,17 @@ orbs:
   gcp-cli: circleci/gcp-cli@2.4.1
 
 jobs:
+  test:
+    docker:
+      - image: circleci/golang:1.16
+    resource_class: medium
+    steps:
+      - checkout
+      - run:
+          name: Golang Test
+          command: |
+            go test -v ./...
+
   deploy:
     docker:
       - image: google/cloud-sdk:404.0.0-alpine
@@ -18,6 +29,9 @@ jobs:
             gcloud app deploy
 
 workflows:
+  test:
+    jobs:
+      - test
   deploy_to_gae_workflow:
     jobs:
       - deploy:
