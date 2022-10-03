@@ -31,7 +31,7 @@ jobs:
 workflows:
   deploy_to_gae_workflow:
     jobs:
-      - test
+      # - test
       - deploy:
           requires:
             - test
