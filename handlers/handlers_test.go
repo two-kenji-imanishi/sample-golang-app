@@ -20,7 +20,7 @@ func TestHelloHandler(t *testing.T) {
 		t.Errorf("unexpected status: got %v want %v", status, http.StatusOK)
 	}
 
-	expected := "Hello GAE World!\n"
+	expected := "Hello GAE World 2022!\n"
 	if rr.Body.String() != expected {
 		t.Errorf("unexpected body: got %v want %v", rr.Body.String(), expected)
 	}
