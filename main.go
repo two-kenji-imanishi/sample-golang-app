@@ -12,6 +12,7 @@ import (
 func main() {
 	r := mux.NewRouter()
 
+	r.HandleFunc("/", handlers.IndexHandler).Methods(http.MethodGet)
 	r.HandleFunc("/hello", handlers.HelloHandler).Methods(http.MethodGet)
 
 	log.Println("server start at port 8080")
