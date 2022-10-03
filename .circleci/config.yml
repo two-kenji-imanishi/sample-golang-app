@@ -1,0 +1,26 @@
+version: 2.1
+
+orbs:
+  gcp-cli: circleci/gcp-cli@2.4.1
+
+jobs:
+  deploy:
+    docker:
+      - image: google/cloud-sdk:404.0.0-alpine
+    resource_class: medium
+    steps:
+      - checkout
+      - gcp-cli/install
+      - gcp-cli/initialize
+      - run:
+          name: Deploy To GAE
+          command: |
+            gcloud app deploy
+
+workflows:
+  deploy_to_gae_workflow:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only: main
