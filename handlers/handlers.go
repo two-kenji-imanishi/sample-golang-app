@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"fmt"
 	"io"
 	"net/http"
+	"os"
 )
 
 func IndexHandler(w http.ResponseWriter, req *http.Request) {
@@ -10,5 +12,5 @@ func IndexHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func HelloHandler(w http.ResponseWriter, req *http.Request) {
-	io.WriteString(w, "Hello GAE World 2022-10-12!\n")
+	io.WriteString(w, fmt.Sprintf("Hello! My name is %s.", os.Getenv("NAME")))
 }
