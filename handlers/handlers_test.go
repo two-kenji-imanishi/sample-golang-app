@@ -1,8 +1,10 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"testing"
 )
 
@@ -40,7 +42,7 @@ func TestHelloHandler(t *testing.T) {
 		t.Errorf("unexpected status: got %v want %v", status, http.StatusOK)
 	}
 
-	expected := "Hello GAE World 2022-10-12!\n"
+	expected := fmt.Sprintf("Hello! My name is %s.", os.Getenv("NAME"))
 	if rr.Body.String() != expected {
 		t.Errorf("unexpected body: got %v want %v", rr.Body.String(), expected)
 	}
