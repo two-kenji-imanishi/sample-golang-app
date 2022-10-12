@@ -10,5 +10,5 @@ func IndexHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func HelloHandler(w http.ResponseWriter, req *http.Request) {
-	io.WriteString(w, "Hello GAE World 2022!\n")
+	io.WriteString(w, "Hello GAE World 2022-10-12!\n")
 }
