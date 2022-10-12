@@ -3,6 +3,9 @@ runtime: go116
 
 instance_class: F1
 
+env_variables:
+  NAME: "Smith"
+
 inbound_services:
   - warmup
 
